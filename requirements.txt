@@ -1,0 +1,5 @@
+pymongo~=4.3.3
+python-dotenv~=0.21.1
+yfinance~=0.2.4
+pandas~=1.5.3
+apscheduler~=3.9.1.post1
