@@ -31,12 +31,12 @@ class Scheduling:
             raise SensorException(e,sys)
     def scheduling(self):
         try:
-            self.scheduler = BlockingScheduler()
+            self.scheduler = BlockingScheduler(timezone='Asia/Kolkata')
             logging.info("Creating BlockingScheduler object scheduler")
             trigger = OrTrigger([CronTrigger(hour='11', minute='15-59/15'),
                                  CronTrigger(hour='12-13', minute='0-59/15'),
                                  CronTrigger(hour='14', minute='0-15/15')])
-            self.scheduler.add_job(self.get_stock_data, trigger, timezone='Asia/Kolkata')
+            self.scheduler.add_job(self.get_stock_data, trigger)
             logging.info("Start Scheduling")
             self.scheduler.start()
         except Exception as e:
